@@ -2,7 +2,7 @@ const Product = require('../schemas/Product');
 
 const getProducts = async (req, res) => {
 	try {
-		const products = await Product.find();
+		const products = await Product.paginate({}, { limit: 2, page: 2 });
 
 		return res.status(200).json({
 			ok: true,
